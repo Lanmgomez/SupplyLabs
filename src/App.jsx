@@ -1,15 +1,16 @@
 import './Sass/App.sass'
-import axios from "axios"
 import { useState, useEffect } from 'react'
+import fetchData from './api/ApiService'
+import { apiUrl } from './api/ApiService'
 
 function App() {
 
   const [apiData, setApiData] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:5000/users')
-    .then(response => { setApiData(response.data), console.log(response.data) })
-    .catch(error => console.log(error))
+    fetchData(apiUrl)
+      .then(response => { setApiData(response.data) })
+      .catch(error => console.log(error))
   }, [])
 
   return (
@@ -19,23 +20,23 @@ function App() {
           <ul className='ul-cards-info'>
             <li>
               <span>Id:</span> 
-              <li>{dataUsers.id}</li>
+              <p>{dataUsers.id}</p>
             </li>
             <li>
               <span>Nome:</span> 
-              <li>{dataUsers.name}</li>
+              <p>{dataUsers.name}</p>
             </li>
             <li>
               <span>Sobrenome:</span> 
-              <li>{dataUsers.username}</li>
+              <p>{dataUsers.username}</p>
             </li>
             <li>
               <span>Email:</span> 
-              <li>{dataUsers.email}</li>
+              <p>{dataUsers.email}</p>
             </li>
             <li>
               <span>Idade:</span> 
-              <li>{dataUsers.age}</li>
+              <p>{dataUsers.age}</p>
             </li>
             <li><button>Ações</button></li>
           </ul>
