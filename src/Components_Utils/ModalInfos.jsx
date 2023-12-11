@@ -3,6 +3,7 @@ import { Button, Modal } from 'antd'
 import fetchData from '../api/ApiService'
 import '../Sass/ModalInfos.sass'
 import { apiUrl } from '../api/ApiService'
+import GoogleMaps from './GoogleMaps'
 
 const ModalInfos = ({ record }) => {
 
@@ -25,6 +26,7 @@ const fetchInfoDataByID = async (id) => {
     try {
       const response = await fetchData(`${apiUrl}${id}`)
       setInfoDataByUser(response.data)
+
     } catch (error) {
       console.error('Erro na requisição:', error)
     }
@@ -69,6 +71,10 @@ const fetchInfoDataByID = async (id) => {
                 </li>
                 <li><span>Latitude:</span> {infoDataByUser.address.geo.lat}</li>
                 <li><span>Longitude:</span> {infoDataByUser.address.geo.lng}</li>
+                <GoogleMaps 
+                  latitude={infoDataByUser.address.geo.lat} 
+                  longitude={infoDataByUser.address.geo.lng}
+                />
             </ul>
         )}
     </Modal>
