@@ -15,7 +15,7 @@ const GoogleMaps = ({ latitude, longitude }) => {
 
   return (
     <div>
-        <iframe ref={map} title="Google Maps"></iframe>
+      <iframe ref={map} title="Google Maps" style={{ marginLeft:"85px"}}></iframe>
     </div>
   )
 }

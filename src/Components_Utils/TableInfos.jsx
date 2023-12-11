@@ -1,4 +1,4 @@
-import ModalInfos from './ModalInfos'
+import MoreInformationBtn from './MoreInformationBtn'
 
 export const columns = [
   { title: 'ID', dataIndex: 'id', key: 'id' },
@@ -9,6 +9,6 @@ export const columns = [
   {
     title: 'Ações',
     key: 'action',
-    render: (record) => <ModalInfos record={record} />,
+    render: (record) => <MoreInformationBtn record={record} />,
   },
 ]
